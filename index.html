@@ -1,89 +1,188 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INMETEC - Consultoría</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>INMETEC · Ingeniería & Consultoría</title>
+  <meta name="description" content="Optimización de producción y costos. Ingeniería mecánica aplicada, sistemas de bombeo y estrategia de negocio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
-      text-align: center;
+    :root{
+      --bg:#0f172a;           /* azul oscuro */
+      --card:#111827;         /* gris-azul */
+      --muted:#94a3b8;        /* texto secundario */
+      --brand:#22c55e;        /* verde acento */
+      --brand-2:#06b6d4;      /* cian acento */
+      --white:#f8fafc;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+      --radius:18px;
+      --max:1100px;
     }
-    header {
-      background: #2c3e50;
-      color: #fff;
-      padding: 40px 20px;
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:var(--white); background:linear-gradient(180deg,#0b1224 0%, #0f172a 100%);
+      line-height:1.6;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    a{color:var(--brand); text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+    header{
+      position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px);
+      background:rgba(15,23,42,.6); border-bottom:1px solid rgba(255,255,255,.06); z-index:5;
     }
-    header p {
-      margin-top: 10px;
-      font-size: 1.2rem;
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .logo{display:flex; gap:10px; align-items:center; font-weight:700}
+    .logo .mark{width:34px; height:34px; border-radius:10px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow:var(--shadow)}
+    .nav a.btn{padding:10px 16px; border-radius:999px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0b1224; font-weight:700}
+    .hero{padding:70px 0 30px}
+    .grid{display:grid; gap:24px}
+    @media(min-width:900px){ .grid-2{grid-template-columns:1.2fr .8fr}}
+    .h1{font-size:clamp(28px,4vw,48px); line-height:1.1; margin:10px 0}
+    .lead{color:var(--muted); font-size:clamp(16px,2.2vw,18px)}
+    .card{
+      background:linear-gradient(180deg,rgba(17,24,39,.8),rgba(17,24,39,.6));
+      border:1px solid rgba(255,255,255,.06);
+      box-shadow:var(--shadow); border-radius:var(--radius); padding:24px;
     }
-    section {
-      padding: 40px 20px;
-    }
-    .card {
-      background: #fff;
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 700px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    footer {
-      background: #2c3e50;
-      color: #fff;
-      padding: 20px;
-      margin-top: 20px;
-    }
-    a {
-      color: #3498db;
-      text-decoration: none;
+    .pill{display:inline-flex; gap:8px; align-items:center; padding:8px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.12); color:var(--muted); font-size:14px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin:22px 0}
+    .cta a{padding:12px 18px; border-radius:12px; font-weight:700}
+    .cta .primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#0b1224}
+    .cta .ghost{border:1px solid rgba(255,255,255,.18); color:var(--white)}
+    .kpis{display:grid; gap:18px; grid-template-columns:repeat(2,1fr)}
+    @media(min-width:700px){.kpis{grid-template-columns:repeat(4,1fr)}}
+    .kpi{background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:18px; text-align:center}
+    .kpi .num{font-size:28px; font-weight:800}
+    section{padding:32px 0}
+    .section-title{font-size:22px; margin:0 0 14px}
+    .services{display:grid; gap:18px}
+    @media(min-width:900px){.services{grid-template-columns:repeat(3,1fr)}}
+    .service .title{font-weight:700; font-size:18px}
+    .service p{color:var(--muted); margin:6px 0 0}
+    .badge{display:inline-block; font-size:12px; color:#0b1224; background:linear-gradient(135deg,var(--brand),var(--brand-2)); padding:4px 10px; border-radius:999px; font-weight:800; letter-spacing:.2px}
+    .stack{display:flex; gap:10px; flex-wrap:wrap}
+    .stack span{padding:8px 12px; border:1px solid rgba(255,255,255,.12); border-radius:999px; color:var(--muted); font-size:14px}
+    footer{margin-top:40px; padding:26px 0; border-top:1px solid rgba(255,255,255,.08); color:var(--muted); font-size:14px}
+    .ghost-img{
+      aspect-ratio: 4/3; width:100%; border-radius:14px; border:1px dashed rgba(255,255,255,.15);
+      display:grid; place-items:center; color:var(--muted)
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>INMETEC</h1>
-    <p>Ingeniería Mecánica y Consultoría Estratégica</p>
-  </header>
-
-  <section>
-    <div class="card">
-      <h2>Sobre mí</h2>
-      <p>Soy Jahir Herrera, ingeniero mecánico con MBA en Centrum PUCP. 
-      Ayudo a empresas a optimizar producción, reducir costos y aumentar la rentabilidad.</p>
+<header>
+  <div class="container nav">
+    <div class="logo">
+      <div class="mark" aria-hidden="true"></div>
+      INMETEC
     </div>
+    <a class="btn" href="#contacto">Contacto</a>
+  </div>
+</header>
 
-    <div class="card">
-      <h2>Servicios</h2>
-      <ul style="text-align:left; display:inline-block;">
-        <li>Optimización de procesos industriales</li>
-        <li>Consultoría financiera en proyectos</li>
-        <li>Diseño de sistemas de bombeo y riego</li>
-        <li>Modelos de negocio y estrategias de crecimiento</li>
-      </ul>
+<main class="container">
+  <!-- HERO -->
+  <section class="hero grid grid-2">
+    <div>
+      <span class="pill">Ingeniería · Estrategia · Resultados</span>
+      <h1 class="h1">Optimización de producción y costos para operaciones exigentes</h1>
+      <p class="lead">
+        Somos especialistas en ingeniería mecánica aplicada y eficiencia operativa. Diseñamos, medimos y ejecutamos
+        mejoras que aumentan la productividad y reducen el costo por hora/equipo o por m³ bombeado.
+      </p>
+      <div class="cta">
+        <a class="primary" href="https://wa.me/51999999999?text=Hola%20INMETEC%2C%20quiero%20una%20asesor%C3%ADa">Agenda por WhatsApp</a>
+        <a class="ghost" href="#servicios">Ver servicios</a>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><div class="num">+10 años</div><div>Experiencia</div></div>
+        <div class="kpi"><div class="num">15–30%</div><div>Ahorro de costos típico</div></div>
+        <div class="kpi"><div class="num">24/7</div><div>Soporte operativo</div></div>
+        <div class="kpi"><div class="num">ROI &lt; 6m</div><div>Retorno estimado</div></div>
+      </div>
     </div>
-
     <div class="card">
-      <h2>Contacto</h2>
-      <p>📧 Email: <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a></p>
-      <p>📱 WhatsApp: <a href="https://wa.me/51999999999">+51 999 999 999</a></p>
-      <p>🌐 LinkedIn: <a href="https://linkedin.com/in/tuusuario" target="_blank">Perfil Profesional</a></p>
+      <div class="ghost-img">Coloca aquí una foto del equipo/operación (img hero)</div>
+      <p class="lead" style="margin-top:14px">
+        “INMETEC nos ayudó a estabilizar el sistema de bombeo y a reducir el costo operativo por hora. Implementación rápida y medible.”
+      </p>
+      <span class="badge">Caso de éxito</span>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 INMETEC - Todos los derechos reservados</p>
-  </footer>
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <h2 class="section-title">Servicios</h2>
+    <div class="services">
+      <div class="service card">
+        <div class="title">Optimización de procesos</div>
+        <p>Diagnóstico, métricas clave (OEE, costo unitario) y rediseño de flujo para aumentar throughput y reducir desperdicio.</p>
+      </div>
+      <div class="service card">
+        <div class="title">Sistemas de bombeo y riego</div>
+        <p>Selección/ajuste de bombas, curvas, cardanes y mantenimiento predictivo. Reducción de costo por m³ y tiempos muertos.</p>
+      </div>
+      <div class="service card">
+        <div class="title">Finanzas operativas</div>
+        <p>Modelos ROI, VAN/TIR y tableros para decisiones rápidas. Diseño de contratos y costos por disponibilidad/uso.</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- ACERCA -->
+  <section id="acerca" class="grid grid-2">
+    <div class="card">
+      <h2 class="section-title">Sobre INMETEC</h2>
+      <p>
+        Soy <strong>Jahir Herrera</strong>, ingeniero mecánico con MBA. Integro ingeniería, datos y gestión para
+        convertir operaciones complejas en resultados simples: más producción con menos costo.
+      </p>
+      <div class="stack" style="margin-top:10px">
+        <span>Lean / Six Sigma</span><span>Mantenimiento</span><span>MS Project</span><span>Excel & Python</span><span>n8n / Automatización</span>
+      </div>
+    </div>
+    <div class="card">
+      <h2 class="section-title">Cómo trabajamos</h2>
+      <ol style="margin:0; padding-left:18px">
+        <li>Evaluación rápida (diagnóstico 360).</li>
+        <li>Plan de mejoras con impacto y costo estimado.</li>
+        <li>Piloto de 2–4 semanas y tablero de métricas.</li>
+        <li>Escalamiento y formación del equipo.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="grid grid-2">
+    <div class="card">
+      <h2 class="section-title">Contacto</h2>
+      <p>Cuéntanos sobre tu operación y te proponemos un diagnóstico sin costo.</p>
+      <p>📧 <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a><br>
+         📱 <a href="https://wa.me/51999999999">+51 999 999 999</a><br>
+         🔗 <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener">LinkedIn</a></p>
+      <div class="cta">
+        <a class="primary" href="https://wa.me/51999999999?text=Hola%20INMETEC%2C%20quiero%20un%20diagn%C3%B3stico">Escríbeme por WhatsApp</a>
+        <a class="ghost" href="#acerca">Conoce más</a>
+      </div>
+    </div>
+    <div class="card">
+      <h2 class="section-title">Agenda una reunión</h2>
+      <p>Escoge un día y hora y conversamos por videollamada (Google Meet o Zoom).</p>
+      <div class="ghost-img">Aquí puedes incrustar tu Calendly/Meet más adelante</div>
+    </div>
+  </section>
+
+  <footer class="container">
+    © <span id="y"></span> INMETEC · Ingeniería & Consultoría — Lima, Perú
+  </footer>
+</main>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
